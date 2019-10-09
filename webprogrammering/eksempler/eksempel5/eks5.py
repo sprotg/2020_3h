@@ -27,5 +27,6 @@ if __name__ == "__main__":
     with app.app_context():
         with open('static/pizza_file.json', "r") as read_file:
             pizzaer = json.load(read_file)
+    print(pizzaer[0])
 
     app.run(debug=True)
