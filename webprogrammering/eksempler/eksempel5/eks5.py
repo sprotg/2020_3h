@@ -15,12 +15,13 @@ def index():
     return render_template('index.html', pizzaer = pizzaer)
 
 
+
 def addPizza(name, price, description):
     pizzaer.append({'name' : name, 'price' : price, 'description' : description})
     savePizzaer()
 
 def savePizzaer():
-    with open("pizza_file.json", "w") as write_file:
+    with open("static/pizza_file.json", "w") as write_file:
         json.dump(pizzaer, write_file)
 
 if __name__ == "__main__":
