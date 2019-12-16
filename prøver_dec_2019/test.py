@@ -38,16 +38,23 @@ while not cmd.startswith('q'):
 
     elif cmd == 'plot':
         #Animation:
+        #https://www.idiotinside.com/2017/06/06/create-gif-animation-with-python/
+        
         #https://www.reddit.com/r/dataisbeautiful/comments/dsv88h/how_did_the_uks_regions_respond_to_the_2008_house/
+        fig, ax = plt.subplots()
         for row in data:
             if row['Uddannelse'] == 'HTX':
-                for n in range(2,9):
+                for n in range(1,8):
                     tal = []
                     aar = []
-                    for key, value in list(row.items())[1:n]:
-                        tal.append(int(value))
+                    for key, value in list(row.items())[1:]:
+                        if int(key) < int('2012') + n:
+                            tal.append(int(value))
+                        else:
+                            tal.append(0)
                         aar.append(key)
-                    plt.bar(aar, tal)
+                    ax.set_ylim(0,15000)
+                    ax.bar(aar, tal, color='green')
                     plt.savefig('{}.png'.format(n))
 
 
