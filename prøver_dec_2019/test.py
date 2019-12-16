@@ -28,18 +28,35 @@ while not cmd.startswith('q'):
 
     elif cmd == 'gennemsnit':
         sum = 0
-        n : 0
-        for row in Data:
-            if row['Uddanelse'] == 'HTX':
+        n = 0
+        for row in data:
+            if row['Uddannelse'] == 'HTX':
                 for key, value in list(row.items())[1:]:
-                    sum += value
+                    sum += int(value)
                     n = n + 1
                 print("I 2012-2018 gik der i gennemsnit {} elever på HTX.".format(sum/n))
 
+    elif cmd == 'plot':
+        #Animation:
+        #https://www.reddit.com/r/dataisbeautiful/comments/dsv88h/how_did_the_uks_regions_respond_to_the_2008_house/
+        for row in data:
+            if row['Uddannelse'] == 'HTX':
+                for n in range(2,9):
+                    tal = []
+                    aar = []
+                    for key, value in list(row.items())[1:n]:
+                        tal.append(int(value))
+                        aar.append(key)
+                    plt.bar(aar, tal)
+                    plt.savefig('{}.png'.format(n))
+
+
+
+
     elif cmd == 'kunst':
         ellipser = []
-        for x in range(10):
-            for y in range(10):
+        for x in range(20):
+            for y in range(20):
                 vinkel = sin(0.1*x*y)*360/(2*pi)
                 ellipser.append(Ellipse([x, y], 1, 0.6, angle=vinkel))
 
@@ -48,8 +65,8 @@ while not cmd.startswith('q'):
         for e in ellipser:
             ax.add_artist(e)
 
-        ax.set_xlim(-1, 11)
-        ax.set_ylim(-1, 11)
+        ax.set_xlim(-1, 21)
+        ax.set_ylim(-1, 21)
         ax.set_frame_on(False)
         ax.set_xticks([])
         ax.set_yticks([])
