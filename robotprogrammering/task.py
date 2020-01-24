@@ -36,15 +36,33 @@ def get_status():
         print("Socket error")
         s.close()
 
-    st = "programState\n".format(cmd)
+    st = "programState\n"
     s.send(bytearray(st,'utf8'))
     response = s.recv(BUFFER_SIZE)
     s.close()
-    if response == 'PLAYING':
+    if response.startswith(b'PLAYING'):
         return True
     else:
         return False
 
+def program_state():
+        TCP_PORT = 29999
+        BUFFER_SIZE = 1024
+        TCP_IP = '10.130.58.13'
+        s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+        s.settimeout(10)
+        try:
+            s.connect((TCP_IP, TCP_PORT))
+            response = s.recv(BUFFER_SIZE)
+        except socket.error:
+            print("Fejl ved forbindelse")
+            s.close()
+
+        s.send(b"running\n")
+        response = s.recv(BUFFER_SIZE)
+        s.close()
+        print(response)
+        return response
 
 
 def stop_robot():
@@ -70,26 +88,29 @@ tilstand = 0
 
 while cmd != 'q':
 
-    #Tilstandslogik
-    if tilstand == 0:
-        r = get_status()
+    if tilstand ==0:
+        r = program_state()
         tilstand = 1
     if tilstand == 1:
         perform_task("fri")
+        started=False
         tilstand = 2
     if tilstand == 2:
-        r = get_status()
-        if r == 'PLAYING':
-            time.sleep(1)
-        else:
+        time.sleep(1)
+
+        r = program_state()
+        if r.startswith(b'Program running: true'):
+            print("Programmet er igang")
+            started= True
+        if r.startswith(b'Program running: false') and started==True:
+            print("Programmet er afsluttet")
             tilstand = 3
     if tilstand == 3:
         cmd = input("Vælg kommando:")
-        if cmd == "play":
+    #if cmd == "play":
 
 
-
-    #outputlogik
+        #outputlogik
     if tilstand == 1:
         print("Robotten kører fri")
     if tilstand == 2:
