@@ -2,6 +2,16 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Ellipse
 from math import sin, pi
 import csv
+import imageio
+import datetime
+
+def create_gif(filenames, duration):
+    images = []
+    for filename in filenames:
+        images.append(imageio.imread(filename))
+    output_file = 'Gif-%s.gif' % datetime.datetime.now().strftime('%Y-%M-%d-%H-%M-%S')
+    imageio.mimsave(output_file, images, duration=duration)
+
 
 infile = open('gym-tal.csv', mode='r')
 reader = csv.DictReader(infile)
@@ -39,7 +49,7 @@ while not cmd.startswith('q'):
     elif cmd == 'plot':
         #Animation:
         #https://www.idiotinside.com/2017/06/06/create-gif-animation-with-python/
-        
+
         #https://www.reddit.com/r/dataisbeautiful/comments/dsv88h/how_did_the_uks_regions_respond_to_the_2008_house/
         fig, ax = plt.subplots()
         for row in data:
@@ -56,8 +66,7 @@ while not cmd.startswith('q'):
                     ax.set_ylim(0,15000)
                     ax.bar(aar, tal, color='green')
                     plt.savefig('{}.png'.format(n))
-
-
+                create_gif(['1.png','2.png','3.png','4.png','5.png','6.png','7.png','8.png'], 1)
 
 
     elif cmd == 'kunst':
