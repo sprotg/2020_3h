@@ -13,9 +13,10 @@ class UR_programmer():
         #Tegneparametre:
         self.tegnehojde = 0.162
         #Grænser for tegningen (x-min, y-min, x-max, y-max)
+        #Robot 1 home: p[-0.434,-0.377, 0.295, 0.917, 4.183, 0.596]
         #Robot 3: x [-0.525, -0.325] y [-0.542, -0.265]
         self.tegne_limits = [-0.525, -0.542, -0.325, -0.265]
-        self.home_pos = b'    movej(p[-0.404,-0.317, 0.410, 1.9199, 0, 0])\n'
+        self.home_pos = b'    movej(p[-0.434,-0.377, 0.295, 0.917, 4.183, 0.596])\n'
 
         #Husk at kontrollere ip-adressen!
         if not simulate:
@@ -125,8 +126,8 @@ class UR_programmer():
 
 
 
-#prog = UR_programmer('10.130.58.11', simulate=False)
+prog = UR_programmer('10.130.58.11', simulate=False)
 
-#prog.move_home()
+prog.move_home()
 
 #prog.move_path([[-0.304,-0.417],[-0.404,-0.417],[-0.404,-0.317],[-0.304,-0.317]])
