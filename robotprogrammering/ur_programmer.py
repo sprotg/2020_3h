@@ -11,11 +11,11 @@ class UR_programmer():
         self.connected = False
 
         #Tegneparametre:
-        self.tegnehojde = 0.062
+        self.tegnehojde = 0.162
         #Grænser for tegningen (x-min, y-min, x-max, y-max)
         #Robot 3: x [-0.525, -0.325] y [-0.542, -0.265]
         self.tegne_limits = [-0.525, -0.542, -0.325, -0.265]
-        self.home_pos = b'    movej(p[-0.404,-0.317, 0.310, 1.9199, 0, 0])\n'
+        self.home_pos = b'    movej(p[-0.404,-0.317, 0.410, 1.9199, 0, 0])\n'
 
         #Husk at kontrollere ip-adressen!
         if not simulate:
@@ -46,6 +46,7 @@ class UR_programmer():
         #(Når vi skal sende en streng til robotten,
         # skal den konverteres til et bytearray
         # derfor står der b foran strengen.)
+
         self.s.send(b'def myProg():\n')
         self.s.send(self.home_pos)
         self.s.send(b'end\n')
@@ -120,3 +121,12 @@ class UR_programmer():
         print('Program sendt til robot.')
         if limit_error:
             print('(Mindst et punkt blev udeladt, fordi det lå udenfor tegneområdet)')
+
+
+
+
+#prog = UR_programmer('10.130.58.11', simulate=False)
+
+#prog.move_home()
+
+#prog.move_path([[-0.304,-0.417],[-0.404,-0.417],[-0.404,-0.317],[-0.304,-0.317]])
