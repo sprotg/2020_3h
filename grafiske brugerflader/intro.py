@@ -1,5 +1,7 @@
 import tkinter as tk
 
+#https://effbot.org/tkinterbook/tkinter-index.htm
+
 def klik():
     t = e.get()
     l.configure(text=t)
