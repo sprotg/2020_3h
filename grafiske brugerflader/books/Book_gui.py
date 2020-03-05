@@ -25,6 +25,21 @@ class Book_gui(ttk.Frame):
             print(curItem)
 
 
+    def slet_bog(self):
+        curItem = self.db_view.item(self.db_view.focus())['values']
+
+        if len(curItem) > 0:
+            b = Book()
+            b.titel = curItem[0]
+            b.forfatter = curItem[1]
+            b.aarstal = curItem[2]
+            b.rating = curItem[3]
+            b.id = int(curItem[4])
+
+            self.data.slet_bog(b)
+            self.opdater_tabel()
+
+
     def rediger_bog(self):
         def change_book():
             b.titel = en_titel.get()
@@ -86,6 +101,9 @@ class Book_gui(ttk.Frame):
 
         self.edit_button = ttk.Button(knap_frame, text="Rediger bog", command=self.rediger_bog)
         self.edit_button.pack(side=tk.TOP)
+
+        self.del_button = ttk.Button(knap_frame, text="Slet bog", command=self.slet_bog)
+        self.del_button.pack(side=tk.TOP)
 
         self.db_view = ttk.Treeview(data_frame, column=("column1", "column2", "column3", "column4", "column5"), show='headings')
         self.db_view.bind("<ButtonRelease-1>", self.on_book_selected)

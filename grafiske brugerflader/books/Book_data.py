@@ -9,6 +9,9 @@ class Book:
         self.rating = 0
         self.id = -1
 
+bog = Book()
+print(bog.forfatter)
+
 
 class Books_data:
 
@@ -47,6 +50,11 @@ class Books_data:
         else:
             n = len(self.books)-1
         return self.books[0:n]
+
+    def slet_bog(self, b):
+        for book in self.books:
+            if book.id == b.id:
+                self.books.remove(book)
 
     def get_book(self, id):
         '''
