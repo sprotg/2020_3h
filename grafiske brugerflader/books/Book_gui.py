@@ -17,12 +17,19 @@ class Book_gui(ttk.Frame):
 
         self.db_view.delete(*self.db_view.get_children())
         for b in l:
-            self.db_view.insert("", tk.END, values=(b.titel, b.forfatter, b.aarstal, b.rating, b.id))
+            self.db_view.insert("", tk.END, values=(b.titel, b.forfatter, b.aarstal, b.get_rating(), b.id))
 
     def on_book_selected(self, event):
         curItem = self.db_view.item(self.db_view.focus())['values']
         if len(curItem) > 0:
-            print(curItem)
+            b = self.data.get_book(curItem[4])
+
+            self.lbl_titel.configure(text="Titel: {}".format(b.titel))
+            self.lbl_forfatter.configure(text="Forfatter: {}".format(b.forfatter))
+
+            self.can.delete("all")
+            print(b.ratings[0]/sum(b.ratings))
+            self.can.create_rectangle(10,190,30,200*(b.ratings[0]/sum(b.ratings)))
 
 
     def slet_bog(self):
@@ -33,7 +40,6 @@ class Book_gui(ttk.Frame):
             b.titel = curItem[0]
             b.forfatter = curItem[1]
             b.aarstal = curItem[2]
-            b.rating = curItem[3]
             b.id = int(curItem[4])
 
             self.data.slet_bog(b)
@@ -44,8 +50,8 @@ class Book_gui(ttk.Frame):
         def change_book():
             b.titel = en_titel.get()
             b.forfatter = en_forfatter.get()
-            b.rating = sc_rating.scale.get()
             self.data.update_book(b)
+            b.give_rating(sc_rating.scale.get())
             self.opdater_tabel()
             dlg.destroy()
             dlg.update()
@@ -57,12 +63,7 @@ class Book_gui(ttk.Frame):
         curItem = self.db_view.item(self.db_view.focus())['values']
 
         if len(curItem) > 0:
-            b = Book()
-            b.titel = curItem[0]
-            b.forfatter = curItem[1]
-            b.aarstal = curItem[2]
-            b.rating = curItem[3]
-            b.id = int(curItem[4])
+            b = self.data.get_book(curItem[4])
 
             dlg = tk.Toplevel()
 
@@ -83,7 +84,7 @@ class Book_gui(ttk.Frame):
             lbl_rating = ttk.Label(dlg, text='Rating')
             lbl_rating.grid(column =0, row = 2)
             sc_rating = ttk.LabeledScale(dlg, from_ = 0, to = 5)
-            sc_rating.value = b.rating
+            sc_rating.value = b.get_rating()
             sc_rating.grid(column=1, row=2)
 
             but_annuller = ttk.Button(dlg, text="Annuller", command=close)
@@ -119,6 +120,15 @@ class Book_gui(ttk.Frame):
         ysb = ttk.Scrollbar(data_frame, command=self.db_view.yview, orient=tk.VERTICAL)
         self.db_view.configure(yscrollcommand=ysb.set)
         self.db_view.pack(side = tk.TOP, fill=tk.BOTH)
+
+        #Top Frame
+        self.can = tk.Canvas(top_frame, width=200, height=200)
+        self.can.grid(column=1, row=0, rowspan=2)
+
+        self.lbl_titel = ttk.Label(top_frame, text='Titel')
+        self.lbl_forfatter = ttk.Label(top_frame, text='Forfatter')
+        self.lbl_titel.grid(column=0, row=0)
+        self.lbl_forfatter.grid(column=0, row=1)
 
         top_frame.pack(side=tk.TOP)
         data_frame.pack(side = tk.TOP)
