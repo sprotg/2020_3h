@@ -1,4 +1,10 @@
+from random import randint
 import csv
+
+class Employee:
+
+    def __init__(self):
+        self.wage = randint(900,1000)
 
 class Book:
 
@@ -56,6 +62,34 @@ class Books_data:
 
             self.books.append(b)
         print("Indlæst {} bøger".format(len(self.books)))
+
+        #Lidt penge til at starte med
+        self.money = 100000
+        #En enkelt ansat i butikken
+        self.ansatte = []
+        self.ansatte.append(Employee())
+
+    def indtaegt(self, amount):
+        #(Opgave 3)
+        #Her skal pengene sættes ind på kontoen
+        pass
+
+    def udbetal_loen(self):
+        #(Opgave 3)
+        #Her skal programmet løbe gennem listen af ansatte
+        #og udregne deres samlede løn. Pengene skal trækkes fra self.money
+        #Beløbet returneres til sidst, så det kan vises i konsollen.
+        return 0
+
+    def sorter(self, felt):
+        if felt == "titel":
+            self.books.sort(key=lambda x:x.titel)
+        elif felt == "forfatter":
+            self.books.sort(key=lambda x:x.forfatter)
+        elif felt == "aarstal":
+            self.books.sort(key=lambda x:str(x.aarstal))
+        elif felt == "rating":
+            self.books.sort(key=lambda x:x.get_rating())
 
     def get_book_list(self, n=0):
         '''
