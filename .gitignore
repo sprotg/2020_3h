@@ -1,4 +1,6 @@
 *.db
-
+*.pyc
 prøver_dec_2019/*/
 prøver_dec_2019/*.zip
+prøver_dec_2019/*.gif
+prøver_dec_2019/*.png

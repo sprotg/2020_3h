@@ -1,6 +1,6 @@
 from random import randint
 import csv
-
+import os
 class Employee:
 
     def __init__(self):
@@ -15,6 +15,7 @@ class Book:
         #[1 stjerne, 2 stjerner, 3 stjerner...]
         self.ratings = [0,0,0,0,0]
         self.id = -1
+        self.pris = randint(70,350)
 
     def get_rating(self):
         r = 0
@@ -38,10 +39,16 @@ class Books_data:
         Variablen samples bestemmer om alle bøger skal indlæses,
         eller kun en lille del.
         '''
+        my_path = os.path.abspath(os.path.dirname(__file__))
+        path = os.path.join(my_path, "data/Books.csv")
         if samples:
-            infile = open('data\\samples\\books.csv', mode='r', encoding="utf8")
+            my_path = os.path.abspath(os.path.dirname(__file__))
+            path = os.path.join(my_path, "data/samples/Books.csv")
+            infile = open(path, mode='r', encoding="utf8")
         else:
-            infile = open('data\\books.csv', mode='r', encoding="utf8")
+            my_path = os.path.abspath(os.path.dirname(__file__))
+            path = os.path.join(my_path, "../data/Books.csv")
+            infile = open(path, mode='r', encoding="utf8")
         reader = csv.DictReader(infile)
 
         self.books = []
