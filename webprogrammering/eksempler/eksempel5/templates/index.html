@@ -1,22 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>JSON data</title>
-  </head>
-  <body>
-    <div style="background-color:#3344bb">
-      <h1>Pizzabutikken!</h1>
-    </div>
-    <a href="/tilfoj">Tilføj ny pizza</a>
-    {% for pizza in pizzaer %}
-    <div style="background-color:#3344bb20; margin:20px; padding:20px">
-      <h3>{{ pizza['name'] }}</h3><br>
-      <p>{{ pizza['description'] }}</p><br>
-      <p>Pris: {{ pizza['price'] }}</p>
-      <p><img src='{{ pizza['image'] }}', alt="billede af en pizza", height = 30, width = 30>
-      </p>
-    </div>
-    {% endfor %}
-  </body>
-</html>
+<head>
+  <meta charset="utf-8">
+  <title>JSON data</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+  <div style="background-color:#3344bb">
+    <h1>Pizzabutikken!</h1>
+  </div>
+  <a href="/tilfoj">Tilføj ny pizza</a>
+<div class="row">
+  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+    Menu
+  </div>
+  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+    <div class="row">
+      {% for pizza in pizzaer %}
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pizza">
+        <div class="box-part text-center">
+          <div class="title">
+            <h4>{{ pizza['name'] }}</h4>
+          </div>
+          <div class="text">
+            <span><p>{{ pizza['description'] }}</p><br>
+              <p>Pris: {{ pizza['price'] }}</p>
+              <p><img src='{{ pizza['image'] }}', alt="billede af en pizza", height = 30, width = 30></span>
+              </div>
+              <a href="#">Køb</a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+  </div>
+</div>
+
+
+    </body>
+    </html>

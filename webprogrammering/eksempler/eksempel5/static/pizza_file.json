@@ -1,1 +1,6 @@
-[{"name": "Hawaii", "price": 40, "description": "Ost, tomat, skinke og ananas", "image": "/static/fig/img1.jpg"}, {"name": "Margherita", "price": 35, "description": "Ost og tomat", "image": "static/fig/img2.jpg"}]
+[{"name": "Hawaii", "price": 40, "description": "Ost, tomat, skinke og ananas", "image": "/static/fig/img1.jpg"},
+  {"name": "Margherita", "price": 35, "description": "Ost og tomat", "image": "static/fig/img2.jpg"},
+    {"name": "Margherita", "price": 35, "description": "Ost og tomat", "image": "static/fig/img2.jpg"},
+      {"name": "Margherita", "price": 35, "description": "Ost og tomat", "image": "static/fig/img2.jpg"},
+        {"name": "Margherita", "price": 35, "description": "Ost og tomat", "image": "static/fig/img2.jpg"},
+          {"name": "Margherita", "price": 35, "description": "Ost og tomat", "image": "static/fig/img2.jpg"}]
