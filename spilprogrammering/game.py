@@ -1,4 +1,5 @@
 import random
+import pygame
 
 class Game():
     def __init__(self):
@@ -37,6 +38,8 @@ class Game():
             for y in range(0, len(self.grid)):
                 #Detect horizontal match
                 if self.grid[x][y] == self.grid[x-1][y] and self.grid[x][y] == self.grid[x+1][y]:
+                    pygame.mixer.music.load('Ding.mp3')
+                    pygame.mixer.music.play(1)
                     c = self.grid[x][y]
 
                     self.grid[x-1][y] = 0

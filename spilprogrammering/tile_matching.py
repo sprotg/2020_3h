@@ -16,9 +16,40 @@ current_tile = (3,3)
 tile_colors = [(0,0,0), (255,0,0), (0,255,0), (0,0,255), (255,255,0), (0,255,255)]
 tile_offset = [280,530]
 tile_size = [50,50]
+mario = pygame.image.load('mario.jpg')
 
+# Sprites
+class Orb_sprite():
+    def __init__(self):
+        self.sprite_images = []
+        self.frames = 6
+        image = pygame.image.load('orbs_small.png')
+        image = image.convert_alpha()
+        spriteWidth = image.get_width() // self.frames
+        spriteHeight = image.get_height()
+        x = 0
+        for i in range(self.frames):
+            frameSurf = pygame.Surface((spriteWidth, spriteHeight), pygame.SRCALPHA, 32)
+            frameSurf.blit(image, (x, 0))
+            self.sprite_images.append(frameSurf.copy())
+            x -= spriteWidth
+        self.anim_count = 0
+        self.anim_frame = 0
+
+    def update(self):
+        self.anim_count += 1
+        if self.anim_count >= 7:
+            self.anim_count = 0
+            self.anim_frame = (self.anim_frame + 1) % self.frames
+
+    def get_current_image(self):
+        return self.sprite_images[self.anim_frame]
+
+orb_sprite = Orb_sprite()
 
 def draw_game():
+    orb_sprite.update()
+
     pygame.draw.rect(screen, (0,0,0), pygame.Rect(0,0,800,600))
     if current_tile is not None:
         t = abs((pygame.time.get_ticks() % 512) - 256) % 256
@@ -30,7 +61,12 @@ def draw_game():
                 game.anim[x][y] -= 1
                 if game.anim[x][y] == 0:
                     game.detect_matches(True)
-            pygame.draw.rect(screen, tile_colors[game.grid[x][y]], pygame.Rect(tile_offset[0] + x*tile_size[0], tile_offset[1] - (y+1)*tile_size[1] - game.anim[x][y], tile_size[0]-5, tile_size[1]-5))
+            if game.grid[x][y] == 1:
+                screen.blit(mario, [tile_offset[0] + x*tile_size[0], tile_offset[1] - (y+1)*tile_size[1] - game.anim[x][y]])
+            elif game.grid[x][y] == 4:
+                screen.blit(orb_sprite.get_current_image(), [tile_offset[0] + x*tile_size[0] + 7, tile_offset[1] - (y+1)*tile_size[1] - game.anim[x][y] + 7])
+            else:
+                pygame.draw.rect(screen, tile_colors[game.grid[x][y]], pygame.Rect(tile_offset[0] + x*tile_size[0], tile_offset[1] - (y+1)*tile_size[1] - game.anim[x][y], tile_size[0]-5, tile_size[1]-5))
 
 def pixels_to_cell(x,y):
     x1 = int((x - tile_offset[0])/tile_size[0])
@@ -52,6 +88,9 @@ def draw_menu():
     pass
 
 tilstand = 1
+
+if not pygame.mixer.get_init():
+    pygame.mixer.init()
 
 #Main game loop
 while not done:
