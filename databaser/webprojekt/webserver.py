@@ -5,6 +5,15 @@ from flask import render_template
 from flask import session
 from flask import redirect
 from flask import url_for
+from flask import send_file
+
+import io
+
+from datetime import date
+
+import matplotlib
+import matplotlib.pyplot as plt
+matplotlib.use('SVG')
 
 from data import Data
 
@@ -26,9 +35,9 @@ my_render bør kaldes i stedet for at kalde render_template direkte.
 def my_render(template, **kwargs):
     login_status = get_login_status()
     if login_status:
-        return render_template(template, loggedin=login_status, user = session['currentuser'], **kwargs)
+        return render_template(template, loggedin=login_status, date=date.today(), user = session['currentuser'], **kwargs)
     else:
-        return render_template(template, loggedin=login_status, user = '', **kwargs)
+        return render_template(template, loggedin=login_status, date=date.today(), user = '', **kwargs)
 
 def get_login_status():
     return 'currentuser' in session
@@ -43,6 +52,20 @@ def get_user_id():
 @app.route("/home")
 def home():
     return my_render('home.html')
+
+@app.route('/fig/<figure_key>')
+def fig(figure_key):
+    dato = figure_key
+    plt.title("Vejrudgigten for {}".format(figure_key))
+    vejr = data.get_current_prediction()
+    print("Vejr: {}".format(vejr))
+    plt.bar(["Flot", "Skidt", "Andet"],vejr)
+    img = io.BytesIO()
+    plt.savefig(img)
+    img.seek(0)
+    #return send_file(img, mimetype='image/png')
+    return send_file(img, mimetype='image/svg+xml')
+
 
 @app.route("/register")
 def register():
@@ -70,6 +93,13 @@ def login_success(email, pw):
 
 def register_success(email, pw):
     return data.register_user(email, pw)
+
+@app.route('/input', methods=['POST'])
+def input_prediction():
+    prediction = request.form['vejr']
+    print(prediction)
+    data.add_prediction(prediction, get_user_id())
+    return redirect("/")
 
 @app.route('/register_user', methods=['POST'])
 def register_user():

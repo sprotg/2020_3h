@@ -26,6 +26,26 @@ class Data():
         if db is not None:
             db.close()
 
+    def add_prediction(self, vejr, user):
+        db = self._get_db()
+        c = db.cursor()
+        c.execute("""INSERT INTO predictions (vejr, user) VALUES (?,?)""", [vejr, user])
+        db.commit()
+
+    def get_current_prediction(self):
+        db = self._get_db()
+        c = db.cursor()
+        c.execute("""SELECT vejr FROM predictions""")
+        p = [0,0,0]
+        for v in c:
+            if v[0] == 'flot':
+                p[0] += 1
+            elif v[0] == 'skidt':
+                p[1] += 1
+            else:
+                print(v[0])
+                p[2] += 1
+        return p
 
     def register_user(self, email, pw):
         db = self._get_db()
@@ -80,6 +100,13 @@ class Data():
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 email TEXT,
                 password TEXT);""")
+        except Exception as e:
+            print(e)
+        try:
+            c.execute("""CREATE TABLE predictions (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user INTEGER,
+                vejr STRING);""")
         except Exception as e:
             print(e)
 
