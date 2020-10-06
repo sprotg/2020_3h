@@ -1,11 +1,18 @@
 import random
+<<<<<<< HEAD
+=======
+import pygame
+>>>>>>> f314dcff790fc02ee1c0e057a4dc27f1714cabce
 
 class Game():
     def __init__(self):
         self.grid = [[random.randint(1,5) for y in range(0,10)] for x in range(0,10)]
         self.anim = [[0 for y in range(0,10)] for x in range(0,10)]
         print(self.grid)
+<<<<<<< HEAD
         self.points = 0
+=======
+>>>>>>> f314dcff790fc02ee1c0e057a4dc27f1714cabce
 
     def build_grid(self):
         #import pdb; pdb.set_trace()
@@ -27,23 +34,35 @@ class Game():
         return l[n:] + l[:n]
 
 
+<<<<<<< HEAD
     def swap_tiles(self, x1,y1,x2,y2):
+=======
+    def swap_tiles(self, x1, y1, x2, y2):
+>>>>>>> f314dcff790fc02ee1c0e057a4dc27f1714cabce
         #Sørg for, at vi kun kan bytte naboceller.
         if abs(x1-x2) <= 1 and abs(y1-y2) <= 1:
             self.grid[x1][y1], self.grid[x2][y2] = self.grid[x2][y2], self.grid[x1][y1]
 
 
     def detect_matches(self, auto = False):
+<<<<<<< HEAD
         if auto == True:
             p = 2
         else:
             p = 1
         dp = 0
+=======
+>>>>>>> f314dcff790fc02ee1c0e057a4dc27f1714cabce
         for x in range(1, len(self.grid)-1):
             for y in range(0, len(self.grid)):
                 #Detect horizontal match
                 if self.grid[x][y] == self.grid[x-1][y] and self.grid[x][y] == self.grid[x+1][y]:
+<<<<<<< HEAD
                     dp += p
+=======
+                    pygame.mixer.music.load('Ding.mp3')
+                    pygame.mixer.music.play(1)
+>>>>>>> f314dcff790fc02ee1c0e057a4dc27f1714cabce
                     c = self.grid[x][y]
 
                     self.grid[x-1][y] = 0
@@ -53,12 +72,16 @@ class Game():
                     while x1 < len(self.grid) and self.grid[x1][y] == c:
                         self.grid[x1][y] = 0
                         x1 += 1
+<<<<<<< HEAD
                         dp += p
+=======
+>>>>>>> f314dcff790fc02ee1c0e057a4dc27f1714cabce
                     #Hvis vi har fjernet brikker, skal pladen fyldes igen
                     self.build_grid()
         for y in range(1, len(self.grid)-1):
             for x in range(0, len(self.grid)):
                 #Detect vertical match
+<<<<<<< HEAD
                 if self.grid[x][y] == self.grid[x][y-1] and self.grid[x][y] == self.grid[x][y+1]:
                     dp += p
                     c = self.grid[x][y]
@@ -75,3 +98,6 @@ class Game():
                     self.build_grid()
         self.points += dp
         return dp
+=======
+                pass
+>>>>>>> f314dcff790fc02ee1c0e057a4dc27f1714cabce
