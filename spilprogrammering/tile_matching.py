@@ -11,16 +11,16 @@ clock = pygame.time.Clock()
 done = False
 game = Game()
 current_tile = (3,3)
-<<<<<<< HEAD
 effects = []
-=======
->>>>>>> f314dcff790fc02ee1c0e057a4dc27f1714cabce
 
 # tile vars
 tile_colors = [(0,0,0), (255,0,0), (0,255,0), (0,0,255), (255,255,0), (0,255,255)]
 tile_offset = [280,530]
 tile_size = [50,50]
 mario = pygame.image.load('mario.jpg')
+orb = pygame.image.load('orb_big.png')
+orb = pygame.transform.scale(orb, (115,100))
+orb.convert_alpha()
 
 # Sprites
 class Orb_sprite():
@@ -94,12 +94,22 @@ def output_logic(tilstand):
         draw_splash()
 
 def draw_menu():
-    s = pygame.Surface((200,200))
-    s.blit(pygame.Rect(0,0,200,200), (0,0,200,200))
-    s.blit(myfont.render("Tryk p for at fortsætte", 0, (255,255,255)), (30,170))
+    s = pygame.Surface((200,200), pygame.SRCALPHA, 32)
+    s.set_alpha(128)                # alpha level
+    s.fill((50,50,50))           # thisfills the entire surface
+    s.blit(myfont.render("Tryk s for at fortsætte", 0, (255,255,255)), (30,170))
+    screen.blit(s, (300,200))    # (0,0) are the top-left coordinates
+
+def draw_splash():
+    s = pygame.Surface((200,200), pygame.SRCALPHA, 32)
+    s.set_alpha(128)                # alpha level
+    s.fill((50,50,50))           # this fills the entire surface
+    s.blit(orb, pygame.rect.Rect(50,50,115,100))
+    s.blit(myfont.render("Tryk s for at starte", 0, (255,255,255)), (30,170))
+    screen.blit(s, (300,200))    # (0,0) are the top-left coordinates
 
 
-tilstand = 0
+tilstand = -1
 
 #Main game loop
 while not done:
@@ -112,11 +122,14 @@ while not done:
         elif tilstand == 1:
             if (event.type == pygame.KEYDOWN and event.key == pygame.K_p):
                 tilstand = 0
+        elif tilstand == -1:
+            if (event.type == pygame.KEYDOWN and event.key == pygame.K_s):
+                tilstand = 1
 
 
 
         #Håndtering af input fra mus
-        if event.type == pygame.MOUSEBUTTONDOWN:
+        if tilstand == 1 and event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
             x_cell, y_cell = pixels_to_cell(pos[0],pos[1])
             print(pos, cell_to_pixels(x_cell,y_cell))

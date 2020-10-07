@@ -43,8 +43,7 @@ class Game():
             for y in range(0, len(self.grid)):
                 #Detect horizontal match
                 if self.grid[x][y] == self.grid[x-1][y] and self.grid[x][y] == self.grid[x+1][y]:
-                    pygame.mixer.music.load('Ding.mp3')
-                    pygame.mixer.music.play(1)
+                    dp += p
                     c = self.grid[x][y]
 
                     self.grid[x-1][y] = 0
@@ -54,6 +53,7 @@ class Game():
                     while x1 < len(self.grid) and self.grid[x1][y] == c:
                         self.grid[x1][y] = 0
                         x1 += 1
+                        dp += p
                     #Hvis vi har fjernet brikker, skal pladen fyldes igen
                     self.build_grid()
         for y in range(1, len(self.grid)-1):
