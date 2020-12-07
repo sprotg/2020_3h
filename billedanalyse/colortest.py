@@ -11,8 +11,8 @@ print(imghsv[499,0])
 print(imghsv[0,499])
 print(imghsv[499,499])
 
-lower_blue = np.array([175,0,0])
-upper_blue = np.array([178,255,255])
+lower_blue = np.array([110,0,0])
+upper_blue = np.array([130,255,255])
 
 # Threshold the HSV image to get only blue colors
 mask = cv2.inRange(imghsv, lower_blue, upper_blue)
