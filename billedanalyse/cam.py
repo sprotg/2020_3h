@@ -47,7 +47,7 @@ class Cam():
 			contours, hierarchy = cv2.findContours(dst, 1, 2)
 
 			sorted_contours = []
-			
+
 			#Sorter på størrelse:
 			for c in contours:
 				area = cv2.contourArea(c)
@@ -83,7 +83,7 @@ class Cam():
 
 				if score < self.match_score:
 					if not silent:
-						print('Der er fundet en klods ved ({:5f},{:5f}), i en vinkel på {:5f} grader. Score: {}'.format(cx,cy, rect[2], score))
+						print('Der er fundet et A ved ({:5f},{:5f}), i en vinkel på {:5f} grader. Score: {}'.format(cx,cy, rect[2], score))
 					#cv2.drawContours(self.frame,[box],0,(0,0,255),2)
 					#Vis text
 					#cv2.putText(self.frame, "({},{}), Vinkel: {}".format(int(cx),int(cy), rect[2]), (int(cx), int(cy)), cv2.FONT_HERSHEY_COMPLEX_SMALL , 0.5, 2)
@@ -94,6 +94,7 @@ class Cam():
 				cv2.imshow("results", self.frame)
 			if not silent:
 				print('Analyse færdig.')
+			return cx,cy, rect[2]
 
 if __name__ == "__main__":
 	c = Cam()
@@ -101,4 +102,4 @@ if __name__ == "__main__":
 	while True:
 		#cmd = input("Skriv > ")
 		time.sleep(0.2)
-		c.analyze()
+		cx, cy, v = c.analyze()

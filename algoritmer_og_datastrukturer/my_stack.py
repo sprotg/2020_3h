@@ -1,3 +1,19 @@
+def is_emmpty():
+    if self.head == self.tail:
+        return True
+    else:
+        return False
+
+def is_full(self):
+    if self.head - self.tail == 1:
+        return True
+    elif self.tail == len(self.array)-1 and self.head == 0:
+        return True
+    else:
+        return False
+
+
+
 class My_stack():
     def __init__(self):
         self.array = [0 for i in range(10)]

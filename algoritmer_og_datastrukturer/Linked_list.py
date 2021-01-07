@@ -33,18 +33,18 @@ class DLElem():
         self.prev = None
         self.next = None
         self.key = key
+if __name__ == "__main__":
+    e1 = DLElem([100,140,10])
+    liste = DLList(e1)
+    liste.print_list()
 
-e1 = DLElem([100,140,10])
-liste = DLList(e1)
-liste.print_list()
+    e2 = DLElem("Elem2")
+    liste.insert(e2)
+    liste.print_list()
 
-e2 = DLElem("Elem2")
-liste.insert(e2)
-liste.print_list()
+    e3 = DLElem("Elem3")
+    liste.insert(e3)
+    liste.print_list()
 
-e3 = DLElem("Elem3")
-liste.insert(e3)
-liste.print_list()
-
-liste.delete(e2)
-liste.print_list()
+    liste.delete(e2)
+    liste.print_list()
