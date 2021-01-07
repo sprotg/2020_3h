@@ -1,0 +1,87 @@
+<?xml version="1.0" standalone="no"?>
+<svg width="14cm" height="4cm" viewBox="0 0 1200 400"
+     xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <desc>Eksempel 1</desc>
+
+  <rect x="1" y="1" width="1198" height="398"
+        fill="none" stroke="blue" stroke-width="2" />
+
+  <polygon transform="translate(50 0)" fill="green" stroke="blue" stroke-width="10"
+            points="350,75  379,161 469,161 397,215
+                    423,301 350,250 277,301 303,215
+                    231,161 321,161" />
+
+  <polygon fill="lime" stroke="blue" stroke-width="10"
+            points="850,75  958,137.5 958,262.5
+                    850,325 742,262.6 742,137.5" />
+
+
+  <!-- Streger mellem punkterne -->
+  
+    <line x1="22" y1="44" x2="339" y2="69"
+            stroke-width="4" stroke="gold" />
+  
+    <line x1="179" y1="82" x2="339" y2="69"
+            stroke-width="4" stroke="gold" />
+  
+    <line x1="164" y1="123" x2="339" y2="69"
+            stroke-width="4" stroke="gold" />
+  
+    <line x1="16" y1="137" x2="339" y2="69"
+            stroke-width="4" stroke="gold" />
+  
+    <line x1="152" y1="165" x2="339" y2="69"
+            stroke-width="4" stroke="gold" />
+  
+    <line x1="116" y1="182" x2="339" y2="69"
+            stroke-width="4" stroke="gold" />
+  
+    <line x1="51" y1="162" x2="339" y2="69"
+            stroke-width="4" stroke="gold" />
+  
+    <line x1="55" y1="163" x2="339" y2="69"
+            stroke-width="4" stroke="gold" />
+  
+    <line x1="129" y1="40" x2="339" y2="69"
+            stroke-width="4" stroke="gold" />
+  
+    <line x1="138" y1="75" x2="339" y2="69"
+            stroke-width="4" stroke="gold" />
+  
+
+  <!-- Det midterste punkt -->
+  <circle cx="339" cy="69" r="10"
+        fill="red" stroke="blue" stroke-width="0"  />
+  <!-- Alle de midterste punkter -->
+  
+  <circle cx="22" cy="44" r="10"
+        fill="red" stroke="blue" stroke-width="0"  />
+  
+  <circle cx="179" cy="82" r="10"
+        fill="red" stroke="blue" stroke-width="0"  />
+  
+  <circle cx="164" cy="123" r="10"
+        fill="red" stroke="blue" stroke-width="0"  />
+  
+  <circle cx="16" cy="137" r="10"
+        fill="red" stroke="blue" stroke-width="0"  />
+  
+  <circle cx="152" cy="165" r="10"
+        fill="red" stroke="blue" stroke-width="0"  />
+  
+  <circle cx="116" cy="182" r="10"
+        fill="red" stroke="blue" stroke-width="0"  />
+  
+  <circle cx="51" cy="162" r="10"
+        fill="red" stroke="blue" stroke-width="0"  />
+  
+  <circle cx="55" cy="163" r="10"
+        fill="red" stroke="blue" stroke-width="0"  />
+  
+  <circle cx="129" cy="40" r="10"
+        fill="red" stroke="blue" stroke-width="0"  />
+  
+  <circle cx="138" cy="75" r="10"
+        fill="red" stroke="blue" stroke-width="0"  />
+  
+</svg>
