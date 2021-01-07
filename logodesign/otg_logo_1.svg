@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="yes"?>
+<svg width="10cm" height="10cm" viewBox="0 0 1000 1000"
+     xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <desc>OTG logo</desc>
+
+  {% for x in range(3) %}
+    {% for y in range(heights[x]) %}
+      <rect x="{{ 10 + x*100}}" y="{{900 - y * 100}}" width="50" height="50" fill="rgb(10,10,10)" stroke="none" />
+    {% endfor %}
+    <polygon transform="translate({{10 + x * 100}} {{900 - heights[x] * 100}})" points="0,50 50,50 0,0" fill="rgb(10,10,10)" stroke="none" />
+  {% endfor %}
+
+
+</svg>
