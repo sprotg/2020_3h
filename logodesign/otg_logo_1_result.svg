@@ -5,21 +5,25 @@
 
   
     
-      <rect x="10" y="900" width="50" height="50" fill="rgb(10,10,10)" stroke="none" />
+      <rect x="10" y="900" width="50" height="50" fill="rgb(40,110,40)" stroke="none" />
     
-    <polygon transform="translate(10 800)" points="0,50 50,50 0,0" fill="rgb(10,10,10)" stroke="none" />
+      <rect x="10" y="800" width="50" height="50" fill="rgb(40,110,40)" stroke="none" />
+    
+      <rect x="10" y="700" width="50" height="50" fill="rgb(40,110,40)" stroke="none" />
+    
+    <polygon transform="translate(10 600)" points="0,50 50,50 0,0" fill="rgb(10,110,10)" stroke="none" />
   
     
-      <rect x="110" y="900" width="50" height="50" fill="rgb(10,10,10)" stroke="none" />
+      <rect x="110" y="900" width="50" height="50" fill="rgb(40,110,40)" stroke="none" />
     
-      <rect x="110" y="800" width="50" height="50" fill="rgb(10,10,10)" stroke="none" />
-    
-    <polygon transform="translate(110 700)" points="0,50 50,50 0,0" fill="rgb(10,10,10)" stroke="none" />
+    <polygon transform="translate(110 800)" points="0,50 50,50 0,0" fill="rgb(10,110,10)" stroke="none" />
   
     
-      <rect x="210" y="900" width="50" height="50" fill="rgb(10,10,10)" stroke="none" />
+      <rect x="210" y="900" width="50" height="50" fill="rgb(40,110,40)" stroke="none" />
     
-    <polygon transform="translate(210 800)" points="0,50 50,50 0,0" fill="rgb(10,10,10)" stroke="none" />
+      <rect x="210" y="800" width="50" height="50" fill="rgb(40,110,40)" stroke="none" />
+    
+    <polygon transform="translate(210 700)" points="0,50 50,50 0,0" fill="rgb(10,110,10)" stroke="none" />
   
 
 

@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="yes"?>
+<svg width="10cm" height="10cm" viewBox="0 0 1200 1000"
+     xmlns="http://www.w3.org/2000/svg" version="1.1">
+
+
+  <circle id="my-circle" r="30" cx="250" cy="250" fill="orange" />
+
+  <animate
+    xlink:href="#my-circle"
+    attributeName="r"
+    from="150"
+    to="70"
+    dur="2s"
+    begin="click"
+    fill="freeze" />
+
+  <animate
+    xlink:href="#my-circle"
+    attributeName="cx"
+    from="250"
+    to="850"
+    dur="1s"
+    begin="click"
+    fill="freeze" />
+
+
+
+</svg>

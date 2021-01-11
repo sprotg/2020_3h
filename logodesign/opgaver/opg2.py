@@ -10,8 +10,10 @@ with open(os.path.join(dir,'opg2_template.svg')) as f:
 
 
 ## Opgave:
-# 1. Filen opg2_template.svg viser en simpel firkant.
-# 2. Få programmet til at generere en tilfældig farve til firkanten hver gang programmet kører
+# 1. Filen opg2_template.svg viser en simpel firkant, lavet som en polygon
+# 2. Få programmet til at generere en tilfældig farve til polygonen hver gang programmet kører
+# 3. Lav om i polygonen ved at skrive nogle andre eller nogle flere koordinater i svg-filen.
+# 4. Få desuden programmet til at gentage polygonen flere gange vha. en for-løkke.
 
 
 

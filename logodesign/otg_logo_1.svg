@@ -5,9 +5,9 @@
 
   {% for x in range(3) %}
     {% for y in range(heights[x]) %}
-      <rect x="{{ 10 + x*100}}" y="{{900 - y * 100}}" width="50" height="50" fill="rgb(10,10,10)" stroke="none" />
+      <rect x="{{ 10 + x*100}}" y="{{900 - y * 100}}" width="50" height="50" fill="rgb(40,110,40)" stroke="none" />
     {% endfor %}
-    <polygon transform="translate({{10 + x * 100}} {{900 - heights[x] * 100}})" points="0,50 50,50 0,0" fill="rgb(10,10,10)" stroke="none" />
+    <polygon transform="translate({{10 + x * 100}} {{900 - heights[x] * 100}})" points="0,50 50,50 0,0" fill="rgb(10,110,10)" stroke="none" />
   {% endfor %}
 
 
