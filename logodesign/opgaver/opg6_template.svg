@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?>
+<svg width="10cm" height="10cm" viewBox="0 0 1200 1000"
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+
+
+     {% for i in range(n) %}
+     <circle cx="250" cy="250" r="5" fill="red">
+         <animateMotion dur="2s" repeatCount="indefinite"
+           path="M0,0 c0,0 {{points[i][0]}},{{points[i][1]}} {{points[i][2]}},{{points[i][3]}} " />
+      </circle>
+      {% endfor %}
+      <circle cx="250" cy="250" r="15" fill="green">
+
+       </circle>
+</svg>
