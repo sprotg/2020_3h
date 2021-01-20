@@ -1,0 +1,23 @@
+<?xml version="1.0" standalone="yes"?>
+<svg width="10cm" height="10cm" viewBox="0 0 1000 1000"
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+
+     <defs>
+       <g id="pind1" transform="rotate(-60)">
+           <rect rx="33" ry="33" width="365" height="66" />
+       </g>
+       <g id="pind2" transform="rotate(-60)">
+           <rect rx="33" ry="33" width="300" height="66"/>
+       </g>
+       <g id="pind3" transform="rotate(-60)">
+           <rect rx="33" ry="33" width="235" height="66" />
+       </g>
+      </defs>
+
+
+       <use xlink:href="#{{pinde[0]}}" x="100" y="500" fill="rgb({{farver[0]}})" />
+       <use xlink:href="#{{pinde[1]}}" x="230" y="500" fill="rgb({{farver[1]}})" />
+       <use xlink:href="#{{pinde[2]}}" x="360" y="500" fill="rgb({{farver[2]}})" />
+
+
+</svg>
