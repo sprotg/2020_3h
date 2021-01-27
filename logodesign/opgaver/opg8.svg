@@ -15,11 +15,9 @@
       </defs>
 
 
-       <use xlink:href="#{{pinde[0]}}" x="100" y="500" fill="rgb({{farver[0]}})" />
-       <use xlink:href="#{{pinde[1]}}" x="230" y="500" fill="rgb({{farver[1]}})" />
-       <use xlink:href="#{{pinde[2]}}" x="360" y="500" fill="rgb({{farver[2]}})" />
-
-
+       <use xlink:href="#pind2" x="100" y="500" fill="rgb(0,141,156)" />
+       <use xlink:href="#pind1" x="230" y="500" fill="rgb(212,209,72)" />
+       <use xlink:href="#pind3" x="360" y="500" fill="rgb(152,153,157)" />
 
 
 </svg>
