@@ -1,0 +1,143 @@
+\documentclass[11pt,a4paper,danish]{article} 
+
+%\usepackage[latin1]{inputenc} % Skal passe til editorens indstillinger
+\usepackage[danish]{babel} % danske overskrifter
+\usepackage[T1]{fontenc} % fonte (output)
+\usepackage{lmodern} % vektor fonte
+\usepackage{graphicx} % inds?ttelse af billeder
+\graphicspath{{./billeder/}} % stivej til bibliotek med figurer
+
+\usepackage{xcolor}
+\usepackage{framed}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{graphicx,amsmath}
+% Sætninger, definitioner m.m.
+\theoremstyle{plain}%default
+
+
+\newtheorem{thm}{Sætning} 
+\newenvironment{theo}{\colorlet{shadecolor}{OTGgreen!50}\begin{shaded}\begin{thm}}{\end{thm}\end{shaded}}
+
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{cor}[thm]{Korollar}
+\newtheorem{claim}[thm]{Påstand}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newenvironment{dfn}{\colorlet{shadecolor}{OTGblue!30}\begin{shaded}\begin{defn}}{\end{defn}\end{shaded}}
+
+
+\newtheorem{example}[thm]{Eksempel}
+\newenvironment{eks}{\colorlet{shadecolor}{OTGgreen!30}\begin{shaded}\begin{example}}{\end{example}\end{shaded}}
+
+\newtheorem{exercise}[thm]{Øvelse}
+\newenvironment{opg}{\colorlet{shadecolor}{OTGgray!30}\begin{shaded}\begin{exercise}}{\end{exercise}\end{shaded}}
+
+\newtheorem{remark}[thm]{Bemærkning}
+
+\newtheorem{obs}[thm]{Observation}
+\newenvironment{observ}{\colorlet{shadecolor}{OTGblue!45}\begin{shaded}\begin{obs}}{\end{obs}\end{shaded}}
+
+\newcommand{\Real}{\text{Re}}
+\newcommand{\Imag}{\text{Im}}
+
+\definecolor{OTGblue}{RGB}{0,141,156}
+\definecolor{OTGgreen}{RGB}{212,209,72}
+\definecolor{OTGgray}{RGB}{152,153,157}
+\definecolor{OTGorange}{RGB}{247,143,30}
+\definecolor{OTGpink}{RGB}{196,0,117}
+\definecolor{OTGlightblue}{RGB}{144,198,225}
+
+\usepackage{mathtools} % matematik - underst?tter muligheden for at bruge \eqref{}
+
+\usepackage[plainpages=false,pdfpagelabels,pageanchor=false]{hyperref} % aktive links
+\hypersetup{%
+  pdfauthor={Søren Præstegaard, spr@sde.dk},
+  pdftitle={},
+  pdfsubject={},
+	colorlinks=true,
+	linkcolor=OTGpink,}
+\usepackage{memhfixc}% rettelser til hyperref
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{courier}
+\lstset{ %
+language=python,                % choose the language of the code
+basicstyle=\ttfamily\footnotesize,       % the size of the fonts that are used for the code
+numbers=left,                   % where to put the line-numbers
+numberstyle=\footnotesize\ttfamily,      % the size of the fonts that are used for the line-numbers
+stepnumber=1,                   % the step between two line-numbers. If it is 1 each line will be numbered
+numbersep=5pt,                  % how far the line-numbers are from the code
+backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=single,           % adds a frame around the code
+tabsize=2,          % sets default tabsize to 2 spaces
+captionpos=b,           % sets the caption-position to bottom
+breaklines=true,        % sets automatic line breaking
+breakatwhitespace=false,    % sets if automatic breaks should only happen at whitespace
+escapeinside={\%*}{*)},          % if you want to add a comment within your code
+keywordstyle=\color{blue}\ttfamily
+}
+
+%\usepackage{fontspec}
+%\setmainfont{PT Serif}
+
+\usepackage{pgf,tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{patterns}
+\usepackage{pgfplots}
+
+
+\date{}
+\title{}
+
+\begin{document}
+\maketitle
+
+
+\section*{}
+
+%\begin{lstlisting}
+%public class HelloWorld{
+%  public static void main(String args[]){
+%  	String s = "Hello World";
+%    System.out.println(s);
+%  }
+%}
+%\end{lstlisting}
+
+
+%\begin{enumerate}[a)]
+%	\item Afbild hyperblen i et koordinatsystem.
+%	\item Før rede for $h$'s monotoniforhold.
+%	\item Beregn $h(x_0)$ når $x_0=0.5$
+%	\item Beregn $x_1$ når $h(x_1)=0.125$
+%	\newcounter{enumTemp}
+%  \setcounter{enumTemp}{\the\value{enumi}}
+%\end{enumerate}
+
+%\begin{enumerate}[a)]
+%	\setcounter{enumi}{\the\value{enumTemp}}
+%	\item Beregn koordinaterne til skæringspunkterne mellem $h$ og $g$.
+%	\item Angiv $Dm(g)$ og $Vm(g)$.
+%\end{enumerate}
+
+\end{document}

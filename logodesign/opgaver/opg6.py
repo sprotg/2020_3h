@@ -13,7 +13,7 @@ with open(os.path.join(dir,'opg6_template.svg')) as f:
 # 1.
 n=30
 points = []
-for i in range(n):
+for i in range(n):ff
     direction = float(random.randint(0,628))/100
     ddir = float(random.randint(0,628))/100
     c1x = cos(direction + ddir) * random.randint(100,500)

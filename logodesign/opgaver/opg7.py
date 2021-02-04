@@ -22,6 +22,18 @@ for n in range(7):
     syvkant = syvkant + "{},{} ".format(radius*cos(vinkel),radius*sin(vinkel))
 
 print(syvkant)
+sx = random.randint(-20,20)
+sy = random.randint(-20,20)
+
+r1 = random.randint(0,255)
+g1 = random.randint(0,255)
+b1 = random.randint(0,255)
+
+r2 = random.randint(0,255)
+g2 = random.randint(0,255)
+b2 = random.randint(0,255)
+
+vinkel = random.randint(0,360)
 
 #TODO:
 # Lav en kopi af syvkanten og fyld den med en farve
@@ -33,5 +45,5 @@ print(syvkant)
 #Åbn svg-filen hvor logoet skal gemmes.
 output_svg = open(os.path.join(dir,'opg7.svg'), "w")
 # I parentesen til funktionen "render" kan parametre sendes til jinja-skabelonen
-n = output_svg.write(tmpl.render(syvkant=syvkant))
+n = output_svg.write(tmpl.render(syvkant=syvkant, sx=sx, sy=sy, r1=r1, g1=g1, b1=b1, r2=r2, g2=g2, b2=b2, vinkel=vinkel))
 output_svg.close()

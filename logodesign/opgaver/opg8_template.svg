@@ -12,14 +12,19 @@
        <g id="pind3" transform="rotate(-60)">
            <rect rx="33" ry="33" width="235" height="66" />
        </g>
+    <filter id="f3" x="0" y="0" width="200%" height="200%">
+      <feOffset result="offOut" in="SourceAlpha" dx="10" dy="10" />
+      <feGaussianBlur result="blurOut" in="offOut" stdDeviation="20" />
+      <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+    </filter>
       </defs>
 
-
+<g filter="url(#f3)" >
        <use xlink:href="#{{pinde[0]}}" x="100" y="500" fill="rgb({{farver[0]}})" />
        <use xlink:href="#{{pinde[1]}}" x="230" y="500" fill="rgb({{farver[1]}})" />
        <use xlink:href="#{{pinde[2]}}" x="360" y="500" fill="rgb({{farver[2]}})" />
 
-
+</g>
 
 
 </svg>

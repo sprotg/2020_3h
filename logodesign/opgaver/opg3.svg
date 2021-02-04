@@ -1,27 +1,33 @@
 <?xml version="1.0" standalone="yes"?>
 <svg width="10cm" height="10cm" viewBox="0 0 1000 1000"
-     xmlns="http://www.w3.org/2000/svg" version="1.1">
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="2.1">
+
 
      <defs>
-         <g id="grøn_figur">
-             <rect x="100" y="100" width="80" height="80" fill="rgba(100,200,100,0.75)" />
-             <circle cx="100" cy="100" r="80"  fill="rgba(100,200,100,0.75)" />
-         </g>
+       <g id="grøn_figur" filter="url(#shadow)">
+           <rect x="100" y="100" width="80" height="80" fill="rgba(100,200,100,0.75)" />
+           <circle cx="100" cy="100" r="80"  fill="rgba(100,200,100,0.75)" />
+       </g>
+       <filter id="shadow">
+      <feDropShadow dx="20" dy="20" height="600%" width="600%" stdDeviation="12.2"/>
+    </filter>
+
+
        </defs>
 
        <use xlink:href="#grøn_figur" x="0" y="0" />
        <use xlink:href="#grøn_figur" x="200" y="0" />
 
-       
+
         <use xlink:href="#grøn_figur" x="0" y="200" transform="translate(0,0) rotate(0,40,240)"/>
-       
+
         <use xlink:href="#grøn_figur" x="0" y="200" transform="translate(200,0) rotate(10,40,240)"/>
-       
+
         <use xlink:href="#grøn_figur" x="0" y="200" transform="translate(400,0) rotate(20,40,240)"/>
-       
+
         <use xlink:href="#grøn_figur" x="0" y="200" transform="translate(600,0) rotate(30,40,240)"/>
-       
+
         <use xlink:href="#grøn_figur" x="0" y="200" transform="translate(800,0) rotate(40,40,240)"/>
-       
+
 
 </svg>
