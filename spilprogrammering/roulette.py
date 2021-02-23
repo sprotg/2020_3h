@@ -1,6 +1,7 @@
 import random
 
 penge = 10000
+mål = 10100
 startindsats = 10
 
 done = False
@@ -14,7 +15,7 @@ while not done:
             penge += 2*indsats
             print("Gevinst! Penge: {}".format(penge))
             indsats = startindsats
-            if penge >= 20000:
+            if penge >= mål:
                 done = True
                 print("Så er der fest. Penge: {}".format(penge))
         else:
